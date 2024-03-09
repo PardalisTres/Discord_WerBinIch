@@ -1,0 +1,20 @@
+# This file should be placed in:
+#   /etc/systemd/system/
+# Register it via:
+#   systemctl daemon-reload
+#   systemctl enable discordbot.werbinich.service
+
+[Unit]
+Description=Mein DiscordBot fuer WerBinIch
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=sascha
+Group=sascha
+ExecStart=/home/pi/Python-Projekte/WerBinIch/start.sh
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
